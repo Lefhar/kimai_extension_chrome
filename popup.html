@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Kimai Timer</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 13px;
+      margin: 10px;
+      min-width: 320px;
+      color: #e5e5e5;
+      background: #111827;
+    }
+    h1 {
+      font-size: 16px;
+      margin: 0 0 8px 0;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 6px;
+      margin-bottom: 3px;
+      font-weight: 600;
+    }
+    input[type="text"], select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 4px 6px;
+      border-radius: 4px;
+      border: 1px solid #374151;
+      background: #020617;
+      color: #e5e5e5;
+    }
+    input[type="text"]::placeholder {
+      color: #6b7280;
+    }
+    #info {
+      font-size: 11px;
+      margin-bottom: 6px;
+      color: #9ca3af;
+      word-break: break-all;
+    }
+    #info div {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #status {
+      margin-top: 6px;
+      font-size: 12px;
+    }
+    #status span {
+      font-weight: 600;
+    }
+    #error {
+      margin-top: 6px;
+      padding: 4px 6px;
+      border-radius: 4px;
+      background: #7f1d1d;
+      color: #fee2e2;
+      display: none;
+      font-size: 12px;
+      white-space: pre-wrap;
+    }
+    .row {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .row > button {
+      flex: 1;
+    }
+    button {
+      border-radius: 4px;
+      border: none;
+      padding: 6px 8px;
+      font-size: 13px;
+      cursor: pointer;
+      background: #2563eb;
+      color: white;
+    }
+    button.secondary {
+      background: #374151;
+    }
+    button.danger {
+      background: #b91c1c;
+    }
+    button:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+    small {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kimai Timer</h1>
+  <div id="info">
+    <div id="tabTitle"></div>
+    <div id="tabUrl"></div>
+  </div>
+
+  <label for="description">Description</label>
+  <input id="description" type="text" placeholder="Description de l'entrée de temps">
+
+  <label for="customerSelect">Client</label>
+  <select id="customerSelect">
+    <option value="">— Sélectionner un client —</option>
+  </select>
+
+  <label for="projectSelect">Projet</label>
+  <select id="projectSelect">
+    <option value="">— Sélectionner un projet —</option>
+  </select>
+
+  <label for="activitySelect">Activité</label>
+  <select id="activitySelect">
+    <option value="">— Sélectionner une activité —</option>
+  </select>
+
+  <div id="status">
+    État : <span id="statusText">Chargement…</span><br>
+    Durée : <span id="elapsed">0:00:00</span>
+  </div>
+
+  <div id="error"></div>
+
+  <div class="row">
+    <button id="startBtn">▶ Démarrer</button>
+    <button id="stopBtn" class="secondary" disabled>■ Arrêter</button>
+  </div>
+  <div class="row">
+    <button id="cancelBtn" class="danger" disabled>✖ Annuler (local)</button>
+    <button id="optionsBtn" class="secondary">⚙️ Options</button>
+  </div>
+
+  <small>Utilise l’API JSON de Kimai (Profil → API).</small>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Kimai Timer",
+  "version": "2.0.1",
+  "description": "Chronomètre type Clockify connecté à Kimai via l'API de Kimai.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/favicon.png",
+      "32": "icons/favicon.png",
+      "48": "icons/favicon.png",
+      "128": "icons/favicon.png"
+    }
+  },
+  "options_page": "options.html",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://*/",
+    "https://*/"
+  ]
+}
